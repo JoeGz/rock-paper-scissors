@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			
+		</title>
+	</head>
+	<body>
+		<script>				
+			let playerScore = 0;
+			let cpuScore = 0;
+			let drawScore = 0;
+
+			function game() { //Cycles 5 game rounds and runs score
+				let roundCounter = 0;
+
+				while (roundCounter < 5) {
+						function computerPlay() { // Creates choice for CPU
+							let choices = ["rock", "paper", "scissors"];
+							let randomChoice = choices[Math.floor(Math.random() * choices.length)];
+							return randomChoice;
+						};
+						let computer = computerPlay();
+						let choice = prompt("Pick your fighter! Rock, Paper, or Scissors?");								if(choice.toLowerCase() === "rock" && computer === "scissors") { //Rock beats Scissors
+								playerScore++;
+								roundCounter++
+                				console.log(playerScore);
+							}
+							else if(choice.toLowerCase() === "paper" && computer === "rock") { //Paper beats Rock
+								playerScore++;
+								roundCounter++
+               					console.log(playerScore);
+							}
+							else if(choice.toLowerCase() === "scissors" && computer === "paper") { //Scissors beats Paper
+								playerScore++;
+								roundCounter++
+                				console.log(playerScore);
+							}
+							else if(choice.toLowerCase() === computer) { // Draw
+								drawScore++;
+								roundCounter++
+                				console.log(drawScore);
+							}
+							else { //Score tracker for CPU
+								cpuScore++;
+								roundCounter++
+                				console.log(cpuScore);
+							};
+						}
+						console.log("Final score:" + "\n" + "Player: " + playerScore + "\n" + "CPU: " + cpuScore + "\n" + "Draw: " + drawScore);
+			}
+
+			</script>
+	</body>
+</html>
